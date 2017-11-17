@@ -20,7 +20,7 @@ class UserShow extends Component {
 	render() {
 		const cityData = this.props.dispArr.map((weather, i) => {
 			return <div className="weather card" key={i}>
-					<img className="card-img-top" alt={weather.weather[0].description} src={'http://openweathermap.org/img/w/'+ weather.weather[0].icon + '.png'}></img>
+					<img className="card-img-top" alt={weather.weather[0].description} src={'https://openweathermap.org/img/w/'+ weather.weather[0].icon + '.png'}></img>
 					<div className="card-body">
 					<h4> Current Weather in {weather.name}</h4>
 					<p>{weather.weather[0].main}</p>
