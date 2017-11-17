@@ -12,7 +12,7 @@ class EditCities extends Component {
 		}
 	}
 changeCityInfo = (cityname, countrycode, cityId) => {
-	request.post("http://localhost:9292/cities/" + cityId)
+	request.post("https://weatherappapi.herokuapp.com/cities/" + cityId)
 	.type('form')
     .withCredentials()
     .send({_method: 'put', id: cityId, cityname: cityname, countrycode: countrycode})

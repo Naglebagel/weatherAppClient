@@ -32,7 +32,7 @@ class App extends Component {
   }
 
 getReqCity = (city, country) => {
-   fetch('http://api.openweathermap.org/data/2.5/weather?q=' + city +','+ country +'&units=imperial&APPID=13bbcfeda97fb1726ea42ebf39817e5a')
+   fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city +','+ country +'&units=imperial&APPID=13bbcfeda97fb1726ea42ebf39817e5a')
     .then(response => response.json())
     .then(data => {
       const state = this.state;
@@ -51,7 +51,7 @@ resetWeatherCity = () => {
 
 userCities = () => {
     const that = this;
-     request.get("http://localhost:9292/users/cities")
+     request.get("https://weatherappapi.herokuapp.com/users/cities")
     .withCredentials()
     .end(function(err, data){
       console.log(data)
@@ -61,7 +61,7 @@ userCities = () => {
         console.log(data, 'this is userShow calling for a users cities')
         const array = JSON.parse(data.text)
         for (let i = 0; i < array.length; i++){
-          fetch('http://api.openweathermap.org/data/2.5/weather?q=' + array[i].cityname +','+ array[i].countrycode +'&units=imperial&APPID=13bbcfeda97fb1726ea42ebf39817e5a')
+          fetch('https://api.openweathermap.org/data/2.5/weather?q=' + array[i].cityname +','+ array[i].countrycode +'&units=imperial&APPID=13bbcfeda97fb1726ea42ebf39817e5a')
             .then(response => response.json())
             .then(data => {
               const state = that.state;
@@ -77,7 +77,7 @@ userCities = () => {
 
 postCreate = (username, password) => {
   const that = this;
-    request.post("http://localhost:9292/users")
+    request.post("https://weatherappapi.herokuapp.com/users")
     .type('form')
     .send({username: username, password: password})
     .end(function(err, data){
@@ -116,7 +116,7 @@ currentUser = (data) => {
 
 userLogout = () => {
   const that = this;
-  request.get("http://localhost:9292/users/logout")
+  request.get("https://weatherappapi.herokuapp.com/users/logout")
     .withCredentials()
     .end(function(err, data){
       const state = that.state
@@ -129,7 +129,7 @@ userLogout = () => {
 
 postEdit = (cityname, countrycode) => {
   const that = this;
-      request.post("http://localhost:9292/cities/create")
+      request.post("https://weatherappapi.herokuapp.com/cities/create")
       .type('form')
       .withCredentials()
       .send({cityname: cityname, countrycode: countrycode})
@@ -143,7 +143,7 @@ postEdit = (cityname, countrycode) => {
 
 postLogin = (username, password) => {
   const that = this;
-    request.post("http://localhost:9292/users/login")
+    request.post("https://weatherappapi.herokuapp.com/users/login")
     .type('form')
     .send({username: username, password: password})
     .withCredentials()

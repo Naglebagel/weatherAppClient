@@ -30,7 +30,7 @@ class EditAccount extends Component {
 
 	currentCities = () => {
     const that = this;
-     request.get("http://localhost:9292/users/cities")
+     request.get("https://weatherappapi.herokuapp.com/users/cities")
     .withCredentials()
     .end(function(err, data){
     	console.log(data)
@@ -48,7 +48,7 @@ class EditAccount extends Component {
 
   deleteCity = (e) => {
   	const that = this;
-	request.post("http://localhost:9292/cities/" + e.currentTarget.value)
+	request.post("https://weatherappapi.herokuapp.com/cities/" + e.currentTarget.value)
 	.type('form')
     .withCredentials()
     .send({_method: 'delete', id: e.currentTarget.value})
