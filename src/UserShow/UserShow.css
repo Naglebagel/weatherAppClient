@@ -1,0 +1,19 @@
+
+.card{
+	width: 20rem;
+	background-color: rgba(23, 63, 115, 0.78);
+	margin-left: 7%;
+	margin-bottom: 2%;
+}
+
+h4{
+	font-weight: bolder;
+}
+
+ul{
+	list-style-type: none;
+}
+
+p{
+	font-size: 1.2rem;
+}

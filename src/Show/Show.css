@@ -1,0 +1,14 @@
+.showDiv{
+	list-style-type: none;
+	margin-right: 10%;
+	margin-top: 2%;
+}
+
+.showLi {
+	font-size: 1.5rem;
+}
+
+.btn{
+	 background-color: #F2C53D;
+    color: #173F73;
+}
